@@ -2,6 +2,8 @@
 
 ![Screen Recording 2025-04-26 at 10](https://github.com/user-attachments/assets/925f0cb4-9195-44fd-8af9-bbc2aed6394b)
 
+https://www.youtube.com/watch?v=V5jZVXx117Y&feature=youtu.be
+
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/matsubos-projects/v0-keyboard-animation)
 [![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/g8Niqi0Ts9N)
 
