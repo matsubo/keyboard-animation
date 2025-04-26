@@ -2,20 +2,19 @@
 
 ![Screen Recording 2025-04-26 at 10](https://github.com/user-attachments/assets/925f0cb4-9195-44fd-8af9-bbc2aed6394b)
 
-
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/matsubos-projects/v0-keyboard-animation)
 [![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/g8Niqi0Ts9N)
 
-**Enhance user interaction with sleek keyboard animations!**
+**Engage young learners (0-2 years) with fun keyboard animations!**
 
-This open-source project provides a set of React components and utilities to easily integrate beautiful and engaging keyboard animations into your web applications. Whether you're building a tutorial, showcasing keyboard shortcuts, or simply want to add a touch of visual flair, `Keyboard Animation` is here to help.
+This open-source project provides a set of React components and utilities to easily integrate beautiful and engaging keyboard animations into your web applications. Whether you're building educational games for toddlers, interactive learning apps, or simply want to add a playful touch, `Keyboard Animation` is here to help.
 
 ## ✨ Features
 
 * **Easy Integration:** Simple and intuitive API for quick setup.
-* **Customizable Animations:** Tailor animations to match your application's style.
+* **Customizable Animations:** Tailor animations to match your application's style and age group.
 * **High Performance:** Smooth and efficient animations using `framer-motion`.
-* **Accessibility:** Designed with accessibility in mind.
+* **Accessibility:** Designed with accessibility in mind (including for early learners).
 * **Modern Technologies:** Built with the latest React features and best practices.
 
 ## 🚀 Getting Started
@@ -35,7 +34,7 @@ import { KeyboardAnimator, Key } from 'keyboard-animation';
 const MyComponent = () => {
   return (
     <KeyboardAnimator>
-      Press <Key>Ctrl</Key> + <Key>Shift</Key> + <Key>Delete</Key> to clear cache.
+      Press <Key>A</Key> to start!
     </KeyboardAnimator>
   );
 };
@@ -43,8 +42,7 @@ const MyComponent = () => {
 export default MyComponent;
 ```
 
-
-## 🛠️  Technologies Used
+## 🛠️ Technologies Used
 
   * **React:** A JavaScript library for building user interfaces.
   * **framer-motion:** A production-ready motion library for React.
@@ -55,7 +53,7 @@ export default MyComponent;
 
 ## 🤝 Contributing
 
-Contributions are welcome!
+Contributions are welcome\!
 
 ## 📄 License
 
@@ -63,7 +61,7 @@ This project is licensed under the MIT License.
 
 ## 🙏 Acknowledgements
 
-* Special thanks to v0.
+  * Special thanks to v0.
 
 -----
 
@@ -71,19 +69,19 @@ This project is licensed under the MIT License.
 
 # Keyboard Animation
 
-[](https://www.google.com/url?sa=E&source=gmail&q=https://vercel.com/matsubos-projects/v0-keyboard-animation)
-[](https://www.google.com/url?sa=E&source=gmail&q=https://v0.dev/chat/projects/g8Niqi0Ts9N)
+[](https://vercel.com/matsubos-projects/v0-keyboard-animation)
+[](https://v0.dev/chat/projects/g8Niqi0Ts9N)
 
-**洗練されたキーボードアニメーションでユーザーインタラクションを向上させましょう！**
+**0歳から2歳までの幼児向けに、楽しいキーボードアニメーションでインタラクションを促進！**
 
-このオープンソースプロジェクトは、ウェブアプリケーションに美しく魅力的なキーボードアニメーションを簡単に統合するためのReactコンポーネントとユーティリティを提供します。 チュートリアルを作成したり、キーボードショートカットを紹介したり、単に視覚的な華やかさを加えたい場合に、`Keyboard Animation` が役立ちます。
+このオープンソースプロジェクトは、ウェブアプリケーションに美しく魅力的なキーボードアニメーションを簡単に統合するためのReactコンポーネントとユーティリティを提供します。 幼児向けの教育ゲーム、インタラクティブな学習アプリ、または単に遊び心のあるタッチを加えたい場合に、`Keyboard Animation` が役立ちます。
 
 ## ✨ 特徴
 
   * **簡単な統合:** 迅速なセットアップのためのシンプルで直感的なAPI。
-  * **カスタマイズ可能なアニメーション:** アプリケーションのスタイルに合わせてアニメーションを調整可能。
+  * **カスタマイズ可能なアニメーション:** アプリケーションのスタイルと年齢層に合わせてアニメーションを調整可能。
   * **高いパフォーマンス:** `framer-motion` を使用したスムーズで効率的なアニメーション。
-  * **アクセシビリティ:** アクセシビリティに配慮した設計。
+  * **アクセシビリティ:** (幼児を含む) アクセシビリティに配慮した設計。
   * **最新技術:** 最新のReact機能とベストプラクティスに基づいて構築。
 
 ## 🚀 はじめに
@@ -103,14 +101,13 @@ import { KeyboardAnimator, Key } from 'keyboard-animation';
 const MyComponent = () => {
   return (
     <KeyboardAnimator>
-      キャッシュをクリアするには、<Key>Ctrl</Key> + <Key>Shift</Key> + <Key>Delete</Key> を押してください。
+      <Key>A</Key> キーを押して開始！
     </KeyboardAnimator>
   );
 };
 
 export default MyComponent;
 ```
-
 
 ## 🛠️ 使用技術
 
@@ -123,7 +120,7 @@ export default MyComponent;
 
 ## 🤝 貢献
 
-貢献は大歓迎です！ 
+貢献は大歓迎です！
 
 ## 📄 ライセンス
 
@@ -131,4 +128,4 @@ export default MyComponent;
 
 ## 🙏 謝辞
 
-* v0ありがとう。
+  * v0ありがとう。
