@@ -1,4 +1,4 @@
-# Keyboard Animation
+# The Rainbow Keyboard
 
 ![Screen Recording 2025-04-26 at 10](https://github.com/user-attachments/assets/925f0cb4-9195-44fd-8af9-bbc2aed6394b)
 
