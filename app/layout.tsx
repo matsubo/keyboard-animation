@@ -1,19 +1,44 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { getDictionary } from "@/lib/dictionaries"; // Import the dictionary loader
 
-export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+
+// Generate metadata based on locale
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+  const locale = params?.locale || 'en' // Default to English if locale is not specified
+  const dictionary = await getDictionary(locale); // Fetch the dictionary
+
+  return {
+    title: dictionary.title,
+    description: dictionary.description,
+    // Optionally add alternates for SEO
+    generator: 'v0.dev',
+    authors: [{ name: 'Yuki Matsukura', url: 'https://x.com/matsubokkuri' }],
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        'en-US': '/en',
+        'ja-JP': '/ja',
+      },
+    },
+  }
+}
+
+// Define props type including params
+interface RootLayoutProps {
+  children: React.ReactNode;
+  params: { locale: string }; // Add params to props
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+  params, // Destructure params
+}: Readonly<RootLayoutProps>) {
+  const locale = params?.locale || 'en'; // Get locale from params, default to 'en'
+  // Ensure no whitespace exists between <html> and <body> tags
+  // and between </body> and </html> tags to prevent hydration errors.
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body>{children}</body>
     </html>
   )

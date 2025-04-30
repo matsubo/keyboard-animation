@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import type { Dictionary } from "@/lib/dictionaries" // Import the Dictionary type
 
 // Array of vibrant colors for better visibility
 const colors = [
@@ -22,7 +23,12 @@ const colors = [
   "text-rose-500",
 ]
 
-export default function KeyboardDisplay() {
+// Define props interface
+interface KeyboardDisplayProps {
+  dictionary: Dictionary
+}
+
+export default function KeyboardDisplay({ dictionary }: KeyboardDisplayProps) {
   const [pressedKey, setPressedKey] = useState<string | null>(null)
   const [keyId, setKeyId] = useState(0)
   const [position, setPosition] = useState({ x: 50, y: 50 })
@@ -157,7 +163,7 @@ export default function KeyboardDisplay() {
           </motion.div>
         )}
       </AnimatePresence>
-      {!pressedKey && <p className="text-2xl text-gray-500">キーを押してね...</p>}
+      {!pressedKey && <p className="text-2xl text-gray-500">{dictionary.keyboardPlaceholder}</p>}
     </div>
   )
 }
