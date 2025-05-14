@@ -117,7 +117,7 @@ export default function KeyboardDisplay({ dictionary }: KeyboardDisplayProps) {
 
       // Generate random position within safe boundaries
       const newX = Math.random() * 70
-      const newY = Math.random() * 70 - 10
+      const newY = Math.random() * 70 - 30
 
       // Get a random color
       const newColor = getRandomColor()
