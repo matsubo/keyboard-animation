@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { getDictionary } from "@/lib/dictionaries"; // Import the dictionary loader
+import { GTM, GTMNoscript } from '@/components/gtm'
 
 
 // Generate metadata based on locale
@@ -35,11 +36,19 @@ export default function RootLayout({
   params, // Destructure params
 }: Readonly<RootLayoutProps>) {
   const locale = params?.locale || 'en'; // Get locale from params, default to 'en'
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+  
   // Ensure no whitespace exists between <html> and <body> tags
   // and between </body> and </html> tags to prevent hydration errors.
   return (
     <html lang={locale}>
-      <body>{children}</body>
+      <head>
+        {gtmId && <GTM gtmId={gtmId} />}
+      </head>
+      <body>
+        {gtmId && <GTMNoscript gtmId={gtmId} />}
+        {children}
+      </body>
     </html>
   )
 }
