@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import type { Dictionary } from "@/lib/dictionaries" // Import the Dictionary type
+import { trackKeyPress, trackKeyboardSession } from "@/lib/gtm"
 
 // Array of vibrant colors for better visibility
 const colors = [
@@ -33,6 +34,10 @@ export default function KeyboardDisplay({ dictionary }: KeyboardDisplayProps) {
   const [keyId, setKeyId] = useState(0)
   const [position, setPosition] = useState({ x: 50, y: 50 })
   const [textColor, setTextColor] = useState("text-white")
+
+  // Session tracking
+  const sessionStartTime = useRef<number>(Date.now())
+  const totalKeysPressed = useRef<number>(0)
 
   // Speech queue system
   const speechQueue = useRef<string[]>([])
@@ -76,7 +81,23 @@ export default function KeyboardDisplay({ dictionary }: KeyboardDisplayProps) {
     return colors[randomIndex]
   }
 
+  // Determine key type for analytics
+  const getKeyType = (key: string): 'letter' | 'number' | 'special' | 'modifier' => {
+    if (/^[A-Z]$/.test(key)) return 'letter'
+    if (/^[0-9]$/.test(key)) return 'number'
+    if (['CTRL', 'ALT', 'SHIFT'].includes(key)) return 'modifier'
+    return 'special'
+  }
+
   useEffect(() => {
+    // Send session statistics every 30 seconds
+    const sessionInterval = setInterval(() => {
+      if (totalKeysPressed.current > 0) {
+        const sessionDuration = Math.floor((Date.now() - sessionStartTime.current) / 1000)
+        trackKeyboardSession(totalKeysPressed.current, sessionDuration)
+      }
+    }, 30000)
+
     const handleKeyDown = (event: KeyboardEvent) => {
       // Get the key value
       let key = event.key
@@ -122,6 +143,13 @@ export default function KeyboardDisplay({ dictionary }: KeyboardDisplayProps) {
       // Get a random color
       const newColor = getRandomColor()
 
+      // Track key press analytics
+      const keyType = getKeyType(key)
+      trackKeyPress(key, keyType)
+      
+      // Update session statistics
+      totalKeysPressed.current += 1
+
       // Add to speech queue instead of speaking directly
       queueSpeech(speechText)
 
@@ -137,8 +165,15 @@ export default function KeyboardDisplay({ dictionary }: KeyboardDisplayProps) {
 
     // Clean up
     return () => {
+      clearInterval(sessionInterval)
       window.removeEventListener("keydown", handleKeyDown)
       window.speechSynthesis.cancel()
+      
+      // Send final session statistics
+      if (totalKeysPressed.current > 0) {
+        const sessionDuration = Math.floor((Date.now() - sessionStartTime.current) / 1000)
+        trackKeyboardSession(totalKeysPressed.current, sessionDuration)
+      }
     }
   }, [])
 
@@ -167,4 +202,3 @@ export default function KeyboardDisplay({ dictionary }: KeyboardDisplayProps) {
     </div>
   )
 }
-
